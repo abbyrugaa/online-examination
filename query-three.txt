@@ -1,0 +1,12 @@
+SELECT 
+    CONCAT(c.fName, ' ', c.mName, ' ', c.lName) AS Name,
+    NULL AS Title_of_Movie,
+    NULL AS Months_of_Borrowed,
+    NULL AS Year_of_Borrowed,
+    NULL AS Quantity_Borrowed
+FROM 
+    tbl_customer_info c
+LEFT JOIN 
+    tbl_rents_info r ON c.id = r.tbl_customer_info_id
+WHERE 
+    r.id IS NULL;
